@@ -1,0 +1,12 @@
+project = QAutoStart
+description = Cross-platform Qt auto-start on login
+version = 1.0.0
+
+headerdirs = ../src
+sourcedirs = ../src
+
+headers.fileextensions = "*.h"
+sources.fileextensions = "*.cpp"
+
+outputdir = html
+outputformats = HTML
