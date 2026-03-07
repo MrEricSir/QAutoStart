@@ -34,22 +34,23 @@ jobs:
   docs:
     name: Documentation
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     steps:
       - uses: actions/checkout@v4
 
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y qt6-base-dev qt6-documentation-tools
+          sudo apt-get install -y qt6-base-dev qdoc-qt6
 
       - name: Generate documentation
         run: |
-          QDOC=$(qmake6 -query QT_HOST_LIBEXECS)/qdoc
+          QDOC=$(dpkg -L qdoc-qt6 | grep '/qdoc$')
           QT_INC=$(qmake6 -query QT_INSTALL_HEADERS)
           "$QDOC" docs/qautostart.qdocconf --outputdir build/docs -I"$QT_INC" -I"$QT_INC/QtCore"
 
-      - name: Upload documentation
-        uses: actions/upload-artifact@v4
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          name: documentation
-          path: build/docs/
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build/docs
