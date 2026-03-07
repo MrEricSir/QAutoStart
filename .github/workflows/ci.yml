@@ -41,11 +41,11 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y qt6-base-dev qdoc-qt6
+          sudo apt-get install -y qt6-base-dev qt6-tools-dev-tools
 
       - name: Generate documentation
         run: |
-          QDOC=$(dpkg -L qdoc-qt6 | grep '/qdoc$')
+          QDOC=$(qmake6 -query QT_HOST_LIBEXECS)/qdoc
           QT_INC=$(qmake6 -query QT_INSTALL_HEADERS)
           "$QDOC" docs/qautostart.qdocconf --outputdir build/docs -I"$QT_INC" -I"$QT_INC/QtCore"
 
