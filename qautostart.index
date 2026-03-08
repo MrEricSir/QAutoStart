@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE QDOCINDEX>
+<INDEX url="" title="QAutoStart Reference Documentation" version="1.0.0" project="QAutoStart">
+    <namespace name="" status="active" access="public" module="qautostart">
+        <class name="QAutoStart" href="qautostart.html" status="active" access="public" location="QAutoStart.h" filepath="/home/runner/work/QAutoStart/QAutoStart/src/QAutoStart.h" lineno="72" documented="true" bases="QObject" module="QAutoStart" brief="Qt cross-platform application auto start on user login">
+            <contents name="example" title="Example" level="1"/>
+            <function name="Get" fullname="QAutoStart::Get" href="qautostart.html#Get" status="active" access="public" location="QAutoStart.h" filepath="/home/runner/work/QAutoStart/QAutoStart/src/QAutoStart.h" lineno="82" documented="true" meta="plain" static="true" type="QAutoStart &amp;" signature="QAutoStart &amp; Get()"/>
+            <function name="isEnabled" fullname="QAutoStart::isEnabled" href="qautostart.html#isEnabled" status="active" access="public" location="QAutoStart.h" filepath="/home/runner/work/QAutoStart/QAutoStart/src/QAutoStart.h" lineno="92" documented="true" meta="plain" virtual="virtual" type="bool" signature="bool isEnabled()"/>
+            <function name="setEnabled" fullname="QAutoStart::setEnabled" href="qautostart.html#setEnabled" status="active" access="public" location="QAutoStart.h" filepath="/home/runner/work/QAutoStart/QAutoStart/src/QAutoStart.h" lineno="102" documented="true" meta="plain" virtual="virtual" type="bool" signature="bool setEnabled(bool enabled)">
+                <parameter type="bool" name="enabled" default=""/>
+            </function>
+        </class>
+        <module name="QAutoStart" href="qautostart-module.html" status="active" location="QAutoStart.h" filepath="/home/runner/work/QAutoStart/QAutoStart/src/QAutoStart.h" lineno="33" documented="true" seen="true" title="QAutoStart C++ Classes" brief="Cross-platform Qt auto-start on user login"/>
+    </namespace>
+</INDEX>

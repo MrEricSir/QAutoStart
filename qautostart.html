@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<!-- QAutoStart.h -->
+  <meta name="description" content="The QAutoStart class provides Qt cross-platform application auto start on user login.">
+  <title>QAutoStart Class | QAutoStart 1.0.0</title>
+     <link rel="stylesheet" type="text/css" href="style/offline.css" /> </head>
+<body>
+<li><a href="qautostart-module.html" translate="no">QAutoStart</a></li>
+<li>QAutoStart</li>
+<div class="sidebar">
+<div class="toc">
+<h3 id="toc">Contents</h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#static-public-members">Static Public Members</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#example">Example</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title" translate="no">QAutoStart Class</h1>
+<!-- $$$QAutoStart-brief -->
+<p>The QAutoStart class provides Qt cross-platform application auto start on user login. <a href="#details">More...</a></p>
+<!-- @@@QAutoStart -->
+<div class="table"><table class="alignedsummary requisites" translate="no">
+<tr><td class="memItemLeft rightAlign topAlign"> Header:</td><td class="memItemRight bottomAlign"> <code translate="no">#include &lt;QAutoStart&gt;</code></td></tr>
+</table></div>
+<ul>
+<li><a href="qautostart-members.html">List of all members, including inherited members</a></li>
+</ul>
+<h2 id="public-functions">Public Functions</h2>
+<div class="table"><table class="alignedsummary" translate="no">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual bool </td><td class="memItemRight bottomAlign"><b><a href="qautostart.html#isEnabled" translate="no">isEnabled</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual bool </td><td class="memItemRight bottomAlign"><b><a href="qautostart.html#setEnabled" translate="no">setEnabled</a></b>(bool <i>enabled</i>)</td></tr>
+</table></div>
+<h2 id="static-public-members">Static Public Members</h2>
+<div class="table"><table class="alignedsummary" translate="no">
+<tr><td class="memItemLeft rightAlign topAlign"> QAutoStart &amp;</td><td class="memItemRight bottomAlign"><b><a href="qautostart.html#Get" translate="no">Get</a></b>()</td></tr>
+</table></div>
+<!-- $$$QAutoStart-description -->
+<div class="descr">
+<h2 id="details">Detailed Description</h2>
+<p>The following platforms are supported:</p>
+<ul>
+<li><b>Windows</b>: Creates a registry entry under <code translate="no">HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run</code>.</li>
+<li><b>macOS</b>: Creates a LaunchAgent plist in <code translate="no">~/Library/LaunchAgents/</code>.</li>
+<li><b>Linux</b>: Creates an XDG autostart <code translate="no">.desktop</code> file in <code translate="no">~/.config/autostart/</code>.</li>
+</ul>
+<p>The autostart artifact names are derived from QCoreApplication::organizationDomain() and QCoreApplication::applicationName(). These properties must be set before QAutoStart can be used.</p>
+<h3 id="example">Example</h3>
+<pre class="cpp" translate="no"><span class="type">QCoreApplication</span><span class="operator">::</span>setApplicationName(<span class="string">&quot;MyApp&quot;</span>);
+<span class="type">QCoreApplication</span><span class="operator">::</span>setOrganizationDomain(<span class="string">&quot;com.example&quot;</span>);
+
+<span class="type"><a href="qautostart.html" translate="no">QAutoStart</a></span> <span class="operator">&amp;</span>autoStart <span class="operator">=</span> <span class="type"><a href="qautostart.html" translate="no">QAutoStart</a></span><span class="operator">::</span>Get();
+autoStart<span class="operator">.</span>setEnabled(<span class="keyword">true</span>);</pre>
+</div>
+<p><b>See also </b>QCoreApplication::setApplicationName() and QCoreApplication::setOrganizationDomain().</p>
+<!-- @@@QAutoStart -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$Get[overload1]$$$Get -->
+<h3 class="fn" translate="no" id="Get"><code class="details extra" translate="no">[static]</code> <span class="type"><a href="qautostart.html" translate="no">QAutoStart</a></span> &amp;QAutoStart::<span class="name">Get</span>()</h3>
+<p>Returns a reference to the singleton.</p>
+<p>On unsupported platforms the returned instance will do nothing.</p>
+<!-- @@@Get -->
+<!-- $$$isEnabled[overload1]$$$isEnabled -->
+<h3 class="fn" translate="no" id="isEnabled"><code class="details extra" translate="no">[virtual]</code> <span class="type">bool</span> QAutoStart::<span class="name">isEnabled</span>()</h3>
+<p>Returns <code translate="no">true</code> if the application is currently registered to start on user login.</p>
+<p>On unsupported platforms, this will always return <code translate="no">false</code>.</p>
+<!-- @@@isEnabled -->
+<!-- $$$setEnabled[overload1]$$$setEnabledbool -->
+<h3 class="fn" translate="no" id="setEnabled"><code class="details extra" translate="no">[virtual]</code> <span class="type">bool</span> QAutoStart::<span class="name">setEnabled</span>(<span class="type">bool</span> <i>enabled</i>)</h3>
+<p>Sets or unsets the application to auto start on user login.</p>
+<p>When <i translate="no">enabled</i> is <code translate="no">true</code> the platform-specific entry is created. When <i translate="no">enabled</i> is <code translate="no">false</code> the entry is removed.</p>
+<p>Returns <code translate="no">true</code> on success, <code translate="no">false</code> if the operation failed.</p>
+<p><b>See also </b><a href="qautostart.html#isEnabled" translate="no">isEnabled</a>().</p>
+<!-- @@@setEnabled -->
+</div>
+</body>
+</html>
