@@ -25,6 +25,17 @@
 
 #include <QObject>
 
+// When running QDoc we have to ignore Q_OBJECT to avoid parsing Qt internals.
+#ifdef Q_QDOC
+#define Q_OBJECT
+#endif
+
+/*!
+    \module QAutoStart
+    \title QAutoStart C++ Classes
+    \brief Cross-platform Qt auto-start on user login.
+*/
+
 /*!
     \class QAutoStart
     \inmodule QAutoStart

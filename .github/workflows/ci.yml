@@ -4,6 +4,7 @@ on:
   push:
     branches: [main]
   pull_request:
+  workflow_dispatch:
 
 jobs:
   build:
@@ -34,19 +35,18 @@ jobs:
   docs:
     name: Documentation
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     steps:
       - uses: actions/checkout@v4
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v4
         with:
-          version: '6.7.*'
+          version: '6.10.1'
           cache: true
-          documentation: true
 
       - name: Generate documentation
-        run: qdoc docs/qautostart.qdocconf --outputdir build/docs
+        run: qdoc docs/qautostart.qdocconf --outputdir build/docs --debug
         env:
           QT_DIR: ${{ env.QT_ROOT_DIR }}
           QT_INSTALL_HEADERS: ${{ env.QT_ROOT_DIR }}/include

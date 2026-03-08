@@ -1,5 +1,5 @@
 project = QAutoStart
-description = Cross-platform Qt auto-start on login
+module = QAutoStart
 version = 1.0.0
 
 headerdirs = ../src
@@ -8,8 +8,20 @@ sourcedirs = ../src
 headers.fileextensions = "*.h"
 sources.fileextensions = "*.cpp"
 
-includepaths += $QT_INSTALL_HEADERS \
+documentationinheaders = true
+moduleheader = QAutoStart.h
+
+depends = qtcore
+
+includepaths += ../src \
+                ../src/backends \
+                $QT_INSTALL_HEADERS \
                 $QT_INSTALL_HEADERS/QtCore
 
 outputdir = html
 outputformats = HTML
+
+HTML.stylesheets = $QT_INSTALL_DOCS/global/template/style/offline.css
+HTML.headerstyles = " \
+    <link rel=\"stylesheet\" type=\"text/css\" href=\"style/offline.css\" /> \
+"
