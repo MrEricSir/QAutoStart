@@ -45,3 +45,8 @@ git commit -m "Add QAutoStart submodule"
 ```
 
 This will place QAutoStart into `external/QAutoStart`.
+
+Add the submodule to your `CMakeLists.txt`:
+
+add_subdirectory(external/QAutoStart)
+target_link_libraries(YourApp PRIVATE QAutoStart::QAutoStart)
