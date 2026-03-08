@@ -8,5 +8,8 @@ sourcedirs = ../src
 headers.fileextensions = "*.h"
 sources.fileextensions = "*.cpp"
 
+includepaths += $QT_INSTALL_HEADERS \
+                $QT_INSTALL_HEADERS/QtCore
+
 outputdir = html
 outputformats = HTML
