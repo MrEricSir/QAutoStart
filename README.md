@@ -6,6 +6,8 @@ Enables or disables a Qt application to start at login on Windows, Mac, and Linu
 
 For full details see [the documentation.](https://mrericsir.github.io/QAutoStart/qautostart.html)
 
+This library was originally developed for the [Fang newsreader](https://github.com/MrEricSir/Fang).
+
 ## Quick Start
 
 When creating your `QApplication`, make sure to set a name and organization; this will be used to 
